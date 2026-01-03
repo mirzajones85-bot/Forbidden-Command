@@ -1,0 +1,20 @@
+name: SecDim
+
+on: push
+
+jobs:
+  secdim:
+    runs-on: ubuntu-latest
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set MESSAGE Environment Variable
+        run: |
+          echo "::set-env name=MESSAGE::Hello SecDim"
+
+      - name: Run Hello SecDim script
+        run: |
+          python app.py
